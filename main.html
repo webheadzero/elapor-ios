@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Required meta tags-->
+		<meta charset="utf-8">
+		<!--<meta http-equiv="Content-Security-Policy"
+            content="default-src * elaporbantul:;
+            connect-src *;
+            style-src * 'self' data: chrome-extension-resource: 'unsafe-inline';
+			script-src * 'self' 'unsafe-inline' 'unsafe-eval';
+            img-src * 'self' data: chrome-extension-resource:;
+            child-src 'self' data: chrome-extension-resource:;
+            font-src 'self' data: chrome-extension-resource:;
+            media-src *;">-->
+		<meta http-equiv="Content-Security-Policy" content="default-src elaporbantul: gap: *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+				img-src * 'self' data: chrome-extension-resource:;style-src 'self' 'unsafe-inline' *">
+		<meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui,height=device-height">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Color theme for statusbar -->
+		<meta name="theme-color" content="#4CAF50">
+		<!-- Your app title -->
+		<title>E-Lapor Bantul</title>
+		<!-- Path to Framework7 Library CSS, Material Theme -->
+		<link rel="stylesheet" href="css/framework7.material.min.css">
+		<!-- Path to Framework7 color related styles, Material Theme -->
+		<link rel="stylesheet" href="css/framework7.material.colors.min.css">
+		<link rel="stylesheet" href="css/framework7-icons.css">
+		<link rel="stylesheet" href="css/material-icons.css">
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="css/my-app.css">
+		<script type="text/javascript" src="js/openfb.js"></script>
+	</head>
+	<body class="theme-green">
+		<!-- Views -->
+		 <style>
+			 .infinite-scroll-preloader {
+			  margin-top:-20px;
+			  margin-bottom: 10px;
+			  text-align: center;
+			}
+			.infinite-scroll-preloader .preloader {
+			  width:34px;
+			  height:34px;
+			}
+			.list-keluhan{
+				background: #C0C0C0;
+			}
+			.list-keluhan .keluhan-card{
+				margin-top:0px;
+			}
+		 </style>
+		<div class="views">
+			<!-- Your main view, should have "view-main" class -->
+			<div class="view view-main">
+				<!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+				<div class="pages navbar-fixed toolbar-fixed">
+					<!-- Page, "data-page" contains page name -->
+					<div data-page="index" class="page">
+						<!-- Top Navbar. In Material theme it should be inside of the page-->
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="center logo">E-Lapor</div>
+							</div>
+						</div>
+						<a href="form-laporan.html" class="floating-button color-blue add-laporan">
+							<i class="icon icon-plus"></i>
+						</a>
+						<div class="toolbar tabbar main-toolbar">
+							<div class="toolbar-inner">
+								<a href="#tab-home" class="tab-link active">
+									<i class="icon f7-icons inactive">home</i>
+									<i class="icon f7-icons active">home_fill</i>
+								</a>
+								<a href="#tab-keluhan" class="tab-link">
+									<i class="icon f7-icons inactive">list</i>
+									<i class="icon f7-icons active">list_fill</i>
+								</a>
+								<a href="#tab-notification" class="tab-link" id="icon-notif">
+									<i class="icon f7-icons inactive">bell</i>
+									<i class="icon f7-icons active">bell_fill</i>
+								</a>
+								<a href="#tab-more" class="tab-link">
+									<i class="icon f7-icons">bars</i>
+								</a>
+							</div>
+						</div>
+						<div class="tabs-swipeable-wrap tabs-container">
+							<div class="tabs main-tabs">
+								<div id="tab-home" class="tab active" data-url="home.html" data-title="E-Lapor" style="background:#ddd;">
+									<div class="pull-to-refresh-content infinite-scroll" data-ptr-distance="55" data-distance="10">
+										<div class="pull-to-refresh-layer">
+											<div class="preloader"></div>
+											<div class="pull-to-refresh-arrow"></div>
+										</div>
+										<div class="content"><span class="progressbar-infinite color-multi"></span></div>
+										<!-- <div class="infinite-scroll-preloader" style="display:none;">
+											<div class="preloader"></div>
+										</div> -->
+									</div>
+								</div>
+								<div id="tab-keluhan" class="tab scroll" data-url="category.html" data-title="Daftar Keluhan" style="background:#fff;">
+									<div class="content"><span class="progressbar-infinite color-multi"></span></div>
+								</div>
+								<div id="tab-notification" class="tab scroll" data-url="notification.html" data-title="Notifikasi" style="background:#fff;">
+									<div class="infinite-scroll" data-ptr-distance="55" data-distance="10">
+										<div class="content"><span class="progressbar-infinite color-multi"></span></div>
+									</div>
+								</div>
+								<div id="tab-more" class="tab scroll" data-url="more.html" data-title="Setting" style="background:#fff;">
+									<div class="content"><span class="progressbar-infinite color-multi"></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Path to Framework7 Library JS-->
+		<script type="text/javascript" src="js/framework7.min.js"></script>
+		<!-- Path to your app js-->
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/my-app.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
+		<script type="text/javascript" src="js/more.js"></script>
+		<script type="text/javascript" src="js/kategori.js"></script>
+		<script type="text/javascript" src="js/handlebars.js"></script>
+		<script type="text/javascript">
+
+		if(userData() != null){
+			var user = window.userData();
+			$$(document).on('click','a,button,div',function(){
+				//nativeclick.trigger();
+				cekStatusUser(user.id);
+			});
+
+			document.addEventListener("deviceready",function(){
+				if (cordova.platformId == 'android') {
+				   if (window.StatusBar) {
+						StatusBar.backgroundColorByHexString("#3F9B41");
+					}
+				}
+
+				document.addEventListener("online", onOnline, false);
+				document.addEventListener("backbutton", onBackKeyDown, false);
+				document.addEventListener("offline", onOffline, false);
+
+				cordova.plugins.backgroundMode.enable();
+				cordova.plugins.backgroundMode.isActive();
+				cordova.plugins.backgroundMode.on('enable', function(){
+					oneSignalService();
+				});
+				cordova.plugins.backgroundMode.on('activate', function () {
+					oneSignalService();
+				});
+
+				cordova.plugins.backgroundMode.on('deactivate', function () {
+					cordova.plugins.backgroundMode.moveToForeground();
+				});
+
+				oneSignalService();
+
+				$$(".card-content img").trigger('lazy');
+
+				cekStatusUser(user.id);
+
+			},false);
+		}
+		document.addEventListener("pause", oneSignalService, false);
+		document.addEventListener("resume", oneSignalService, false);
+
+		//if(/Android 4\.[0-3]/.test(navigator.appVersion)){
+		   window.addEventListener("resize", function(){
+			  if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA"){
+			  	 window.setTimeout(function(){
+					document.activeElement.scrollIntoViewIfNeeded();
+				 },0);
+			  }
+		   });
+		//}
+
+		function oneSignalService()
+		{
+			//if (cordova.platformId == 'android') {
+				if(window.plugins){
+					window.plugins.OneSignal.startInit("28d085ec-8329-4505-8990-c13903364f14", "1073257436431").handleNotificationOpened(function(data) {
+
+					}).endInit();
+
+				}
+			//}
+		}
+
+        var lastTimeBackPress=0;
+        var durationToExit=2000;
+
+        function onOnline(e){
+        	myApp.closeNotification('.notifications');
+		}
+
+        function onOffline(e){
+        	myApp.closeNotification('.notifications');
+        	myApp.addNotification({button:false, closeOnClick:true, message: 'No network connection, please check your connection.', additionalClass:'bg-red'});
+        }
+
+        function checkUpdate(){
+        	var updateUrl = jsonUrl+"version.xml";
+			window.AppUpdate.checkAppUpdate(onSuccess, onFail, updateUrl);
+			var me = this;
+		    function onFail() {console.log('fail', JSON.stringify(arguments), arguments);}
+		    function onSuccess() {console.log('success', JSON.stringify(arguments), arguments);}
+        }
+
+		function onBackKeyDown(e){
+            e.preventDefault();
+            e.stopPropagation();
+            if(mainView.activePage.name!='index'){
+				mainView.router.back();
+				myPhotoBrowser.close();
+            } else {
+              if(new Date().getTime() - lastTimeBackPress < durationToExit){
+				  cordova.plugins.backgroundMode.moveToBackground();
+                  navigator.app.exitApp();
+              } else{
+                  window.plugins.toast.showWithOptions(
+                      {
+                        message: "Tekan sekali lagi untuk keluar.",
+                        duration: "short",
+                        position: "bottom",
+                        addPixelsY: -40
+                      }
+                    );
+                  lastTimeBackPress=new Date().getTime();
+              }
+			}
+        }
+
+
+			function cekStatusUser(id){
+				$$(document).on('ajaxStart', function (e) {
+					myApp.hideIndicator();
+				});
+				$$.ajax({
+					url: jsonUrl + "json.php?id_user="+id,
+					type: "post",
+					async: true,
+					dataType: "json",
+					success: function(data) {
+						var status_aktif = data.result[0].status_aktif;
+						if (status_aktif == 0){
+							myApp.alert('Akun Anda telah diblokir!', 'Informasi', function () {
+								logout(id);
+								window.localStorage.clear();
+								window.location = "index.html";
+							});
+						}else if(data.result[0].device_id != localStorage.getItem("device-id") &&
+								localStorage.getItem("device-id") != null && data.result[0].device_id != null &&
+								localStorage.getItem("device-id") != '' && data.result[0].device_id != ''){
+								myApp.alert('Anda telah login di device lain!', 'Informasi', function () {
+									window.plugins.googleplus.logout(
+                       function (msg) {
+                       }
+                  );
+									window.localStorage.clear();
+									window.location = "index.html";
+								});
+						}
+					},
+					error: function (textStatus, errorThrown) {
+						myApp.alert('Akun Anda telah dihapus!', 'Informasi', function () {
+							window.plugins.googleplus.logout(
+									 function (msg) {
+									 }
+							);
+							logout(id);
+								window.localStorage.clear();
+								window.location = "index.html";
+					});
+					}
+				});
+			}
+
+			function SetKetepatanWaktu(){
+				$$.ajax({
+					type: 'GET',
+					dataType: 'JSONP',
+					jsonpCallback: 'callbackFnc',
+					async: true,
+					url: "https://elapor.bantulkab.go.id/site/set_ketepatan_waktu",
+					success: function(data){
+					}
+				});
+			}
+			SetKetepatanWaktu();
+		</script>
+
+	</body>
+</html>

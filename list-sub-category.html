@@ -1,0 +1,40 @@
+<div class="pages">
+  	<div data-page="list-sub-category" class="page list-sub-category">
+	  	<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">List Sub Kategori</div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<!-- LIST CARD -->
+			<div id="list-sub-category"></div>
+			<script id="list-sub-category_template" type="text/template7">
+				<div class="content-block-title text-center">Pilih Sub Kategori</div>
+				<div class="category-link">
+					<div class="row no-gutter text-center" style="justify-content: flex-start;">
+					{{#if result}}
+						{{#each result}}
+							<div class="col-25">
+								<a href="list-keluhan.html?id={{id}}" data-id="{{id}}" id="sub_kategori" class="category-item">
+									{{#if nama_file}}
+										<div class="icon" style="background-image: url('{{nama_file}}');">
+										</div>
+									{{else}}
+										<div class="icon"></div>
+									{{/if}}
+									<h5>{{nama_kategori}}</h5>
+								</a>
+							</div>
+						{{/each}}
+					{{else}}
+						<div class="col-50">Tidak ada sub kategori.</div>
+						<div class="col-50"></div>
+					{{/if}}
+					</div> 
+				</div>
+			</script>
+		</div>
+  	</div>
+</div>

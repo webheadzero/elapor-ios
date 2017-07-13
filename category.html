@@ -1,0 +1,18 @@
+<div class="content-block-title text-center">Pilih Kategori</div>
+<div class="category-link">
+	<div class="row no-gutter" style="padding-left:3px;padding-right: 3px; justify-content: flex-start;">
+		{{#.}}
+			<div class="col-25">
+				<a href="list-sub-category.html?id={{id}}" data-id="{{id}}" id="kategori" class="category-item">
+					{{#if nama_file}}
+						<div class="icon" style="background-image: url('{{nama_file}}');">
+						</div>
+					{{else}}
+						<div class="icon"></div>
+					{{/if}}
+					<h5>{{nama_kategori}}</h5>
+				</a>
+			</div>
+		{{/.}}
+	</div>
+</div>

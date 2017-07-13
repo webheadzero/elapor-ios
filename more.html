@@ -1,0 +1,61 @@
+
+<div class="profilebox">
+	{{#if result.foto_user}}
+		<div class="profilebox-avatar" style="cursor:pointer;"><img src="{{result.foto_user}}" width="100%" id="image-avatar"></div>
+	{{else}}
+		{{#if foto_profile}}
+			<div class="profilebox-avatar" style="cursor:pointer;"><img src="{{foto_profile}}" width="100%" id="image-avatar"></div>
+		{{else}}	
+			<div class="profilebox-avatar" style="cursor:pointer;"><img src="img/avatar.png" width="34" height="34" id="image-avatar"></div>
+		{{/if}}
+	{{/if}}
+	{{#result}}
+		<div class="profilebox-name">{{nama}}</div>
+		<div class="profilebox-date">{{updated_at}}</div>
+	{{/result}}
+</div>
+<div class="list-block media-list noborder">
+	<ul>
+		<li>
+			<a href="edit-profil.html" class="item-link item-content ajax-link profil">
+				<div class="item-media"><i class="f7-icons color-blue">person</i></div>
+				<div class="item-inner">
+					<div class="item-title">Edit Profil</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="ganti-password.html" class="item-link item-content">
+				<div class="item-media"><i class="f7-icons color-red">unlock</i></div>
+				<div class="item-inner">
+					<div class="item-title">Ganti Password</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="bantuan.html" class="item-link item-content">
+				<div class="item-media"><i class="f7-icons color-green">help</i></div>
+				<div class="item-inner">
+					<div class="item-title">Bantuan</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="#" class="item-link item-content" onclick="window.plugins.socialsharing.share('E-Lapor Bantul: Aplikasi Pengaduan di Kabupaten Bantul | ', null, null, 'https://elapor.bantulkab.go.id')">
+				<div class="item-media"><i class="f7-icons color-blue">share</i></div>
+				<div class="item-inner">
+					<div class="item-title">Share</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="index.html" class="item-link item-content external ajax-link logout">
+				<div class="item-media"><i class="f7-icons color-black">logout</i></div>
+				<div class="item-inner">
+					<div class="item-title">Log Out</div>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
+

@@ -1,0 +1,64 @@
+<!-- HERO IMAGES -->
+
+<div class="section section-hero" style="background-image:url(img/login-bg.png);padding:30px;min-height: 100px;"></div>
+<div class="content-block home-counter">
+	<div class="row no-gutter text-center">
+		<div class="col-30">
+			<h2 class="laporan">{{total}}</h2>
+			<h5>Total Keluhan</h5>
+		</div>
+		<div class="col-30">
+			<h2>{{terespon.terespon}}</h2>
+			<h5>Terbalas</h5>
+		</div>
+		<div class="col-35">
+			<h2>{{blm_dibalas}}</h2>
+			<h5>Belum Terbalas</h5>
+		</div>
+	</div> 
+</div>
+
+<!-- LIST CARD -->
+{{#model}}
+<div class="card keluhan-card">
+	<div class="card-header no-border">
+		<div class="keluhan-avatar">
+			{{#if foto_user}}
+				<img src="{{foto_user}}">
+			{{else}}	 
+				<img src="img/avatar.png">
+			{{/if}}
+		</div>
+		<div class="keluhan-name">{{nama_lengkap}}</div>
+		<div class="keluhan-date">{{tgl_laporan}}</div>
+	</div>
+	<div class="card-content">
+		<div class="post-image" style="min-height:20px;">
+			{{#if nama_file}}
+				<a href="#" data-image="{{nama_file}}" class="zoomImage"><img src="{{nama_file}}" width="100%"></a>
+				<div class="chip">
+					<div class="chip-label">{{nama_kategori}}</div>
+				</div>
+			{{else}}	 
+				<div class="chip" style="margin-top:-22px;">
+					<div class="chip-label">{{nama_kategori}}</div>
+				</div>
+			{{/if}}
+		</div>
+		<div class="card-content-inner">
+			{{isi}}
+					
+			<br/><br/>
+			<b>Lokasi: </b>{{lokasi}}
+		</div>
+	</div>
+	<div class="card-footer no-border">
+		<a href="laporan-detail.html?id={{id}}" class="link comment" data-id="{{id}}">
+			<i class="material-icons">comment</i> Comment
+		</a>
+	</div>
+</div>
+{{/model}}
+
+
+<!-- End LIST CARD -->

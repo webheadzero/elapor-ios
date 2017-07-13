@@ -1,0 +1,123 @@
+<div class="pages">
+    <div data-page="registrasi" class="page">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div ng-app="facebookApp">
+					<div ng-controller="mainCtrl">
+					</div>
+				</div>
+
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">Daftar Baru</div>
+				<div class="right registrasi"><a href="#" class="link"> <i class="icon material-icons">check</i></a></div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block">
+				<div class="row" style="margin-bottom: 10px;">
+
+					<div class="col-50"><button type="button" class="button button-big button-fill color-blue facebook" formtarget="_top">FACEBOOK</button></div>
+					<div class="col-50"><button type="button" class="button button-big button-fill color-red google">Google</button></div>
+				</div>
+			</div>
+			<div class="content-block-title">Masukkan Biodata Anda</div>
+			<form class="list-block inputs-list">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">email</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Email</div>
+								<div class="item-input item-input-field">
+									<input type="text" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">person</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Username</div>
+								<div class="item-input item-input-field">
+									<input type="text" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">lock_outline</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Password</div>
+								<div class="item-input item-input-field">
+									<input type="password" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">face</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Nama Lengkap</div>
+								<div class="item-input item-input-field">
+									<input type="text" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">people_outline</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Jenis Kelamin</div>
+								<div class="item-input item-input-field">
+									<select>
+										<option></option>
+										<option value="l">Laki-Laki</option>
+										<option value="p">Perempuan</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">date_range</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Tanggal Lahir</div>
+								<div class="item-input item-input-field">
+									<input type="text" id="tanggal_lahir" placeholder="" class="" onclick="calendar()" readonly>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">place</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Lokasi</div>
+								<div class="item-input item-input-field">
+									<input type="text" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="align-top">
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">assignment</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Biodata</div>
+								<div class="item-input item-input-field">
+									<textarea class="resizable"></textarea>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</div>

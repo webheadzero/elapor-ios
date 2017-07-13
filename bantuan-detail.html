@@ -1,0 +1,23 @@
+<div class="pages">
+  	<div data-page="bantuan-detail" class="page bantuan-detail">
+	  	<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">Bantuan</div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="page-content">
+		<div id="bantuan_detail"></div>
+			<script id="bantuan_detail_template" type="text/template7">
+				{{#each result}}
+				<div class="content-block">
+					<div style="text-align:center;"><b>{{judul}}</b></div>
+					<br><br>
+					{{isi}}
+				</div>
+				{{/each}}
+			</script>
+		</div>
+  	</div>
+</div>

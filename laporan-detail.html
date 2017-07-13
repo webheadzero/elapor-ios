@@ -1,0 +1,107 @@
+<style>
+.list-block.media-list .item-media {
+    padding-top: 0px;
+}
+.list-block .item-media {
+	width: 34px;
+}
+</style>
+
+<div class="pages">
+  	<div data-page="detail-laporan" class="page detail-laporan">
+	  	<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">Detail Laporan</div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="laporan_detail page-content messages-content bg-white">
+		<div id="laporan_detail"></div>
+			<script id="laporan_detail_template" type="text/template7">
+
+			{{#each laporan}}
+				{{#if nama_file}}
+					<div class="image-placeholder">
+						<a href="#" data-image="{{nama_file}}" class="zoomImage"><img src="{{nama_file}}" width="100%"></a>
+						<div class="chip">
+							<div class="chip-label">{{nama_kategori}}</div>
+						</div>
+					</div>
+				{{/if}}
+				<input type="hidden" id="id_laporan" value="{{id}}"/>
+				<div class="profilebox bg-white">
+					{{#if foto_user}}
+						<div class="profilebox-avatar"><img src="{{foto_user}}" width="100%"></div>
+					{{else}}
+						<div class="profilebox-avatar"><img src="img/avatar.png" width="34" height="34"></div>
+					{{/if}}
+					<div class="profilebox-name">{{nama_lengkap}}</div>
+					<div class="profilebox-date">{{tgl_laporan}}</div>
+				</div>
+
+				<div class="content-block-title">
+					Informasi Laporan
+					{{#if nama_file}}
+					{{else}}
+						<div class="chip" style="float:right;margin-top:20px;">
+							<div class="chip-label">{{nama_kategori}}</div>
+						</div>
+					{{/if}}
+				</div>
+				<div class="content-block">
+					{{isi}}
+
+					<br/><br/>
+					<b>Lokasi: </b>{{lokasi}}
+				</div>
+				<div class="content-block-title jml_komentar">{{jml_komentar}} Komentar</div>
+			{{/each}}
+			<div class="list-block media-list comment-list">
+				<ul>
+					{{#each komentar}}
+						<li>
+							<div class="profilebox bg-white" style="display: -webkit-flex;">
+								{{#if foto_user}}
+									<div class="profilebox-avatar" style="min-width:34px;max-width:34px;margin-top:7px;">
+										<img src="{{foto_user}}" width="100%" >
+									</div>
+								{{else}}
+									<div class="profilebox-avatar"><img src="img/avatar.png" width="100%"></div>
+								{{/if}}
+								<div class="item-inner" style="padding-top: 0px;margin-left:14px;">
+									<div class="item-title-row">
+										<div class="item-title">{{nama_lengkap}}</div>
+									</div>
+									<div class="item-subtitle">{{grup}}</div>
+									<div class="item-comment">
+										{{isi}}
+									</div>
+								</div>
+							</div>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+			</script>
+		</div>
+				<div class="toolbar messagebar">
+		<div id="laporan_komen"></div>
+			<script id="laporan_komen_template" type="text/template7">
+		{{#each laporan}}
+			{{#if akses_komentar}}
+					<div class="toolbar-inner">
+						<textarea placeholder="Message" id="komentar"></textarea><a href="#" class="link send-message">Send</a>
+					</div>
+			{{else}}
+					<style>
+						.toolbar.messagebar {
+							display: none;
+						}
+					</style>
+			{{/if}}
+		{{/each}}
+		</script>
+				</div>
+  	</div>
+</div>

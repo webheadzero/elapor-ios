@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'RajdhaniRegular';
+    src: url('fonts/RajdhaniRegular.eot');
+    src: url('fonts/RajdhaniRegular.eot') format('embedded-opentype'),
+         url('fonts/RajdhaniRegular.woff2') format('woff2'),
+         url('fonts/RajdhaniRegular.woff') format('woff'),
+         url('fonts/RajdhaniRegular.ttf') format('truetype'),
+         url('fonts/RajdhaniRegular.svg#RajdhaniRegular') format('svg');
+}

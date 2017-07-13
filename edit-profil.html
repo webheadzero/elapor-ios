@@ -1,0 +1,115 @@
+<div class="pages">
+	<div data-page="edit-profil" class="page edit-profil">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">Edit Profil</div>
+				<div class="right"><a href="#" class="link save-profil"> <i class="icon material-icons">check</i></a></div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="page-content">
+			<div class="content-block-title">Masukkan Biodata Anda</div>
+			<div id="edit_profil"></div>
+			<script id="edit_profil_template" type="text/template7">
+			<form class="list-block inputs-list">
+			{{#each result}}
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">email</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Email</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="email" placeholder="" class="focus-state" value="{{email}}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">person</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Username</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="text" placeholder="" class="focus-state" value="{{username}}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">lock_outline</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Password</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="password" placeholder="" class="focus-state" value="{{password}}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">person_outline</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Nama Lengkap</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="text" placeholder="" class="focus-state" value="{{nama}}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">people_outline</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Jenis Kelamin</div>
+								<div class="item-input item-input-field focus-state">
+									<select>
+										<option value="l" selected=({{jenis_kelamin}}="l" ? "selected" : "")>Laki-Laki</option>
+										<option value="p" selected=({{jenis_kelamin}}="p" ? "selected" : "")>Perempuan</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">date_range</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Tanggal Lahir</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="text" id="tanggal_lahir" placeholder="" class="focus-state" value="{{tanggal_lahir}}" onclick="calendar()" readonly>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">place</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Lokasi</div>
+								<div class="item-input item-input-field focus-state">
+									<input type="text" placeholder="" class="focus-state" value="{{alamat}}">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="align-top">
+						<div class="item-content">
+							<div class="item-media"><i class="icon material-icons">assignment</i></div>
+							<div class="item-inner focus-state">
+								<div class="item-title floating-label">Biodata</div>
+								<div class="item-input item-input-field focus-state">
+									<textarea class="resizable">{{biodata}}</textarea>
+								</div>
+							</div>
+						</div>
+					</li>			
+				</ul>
+				{{/each}}
+			</form>
+			</script>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<div class="pages">
+  	<div data-page="list-keluhan" class="page list-keluhan">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center sliding">Daftar Keluhan</div>
+			</div>
+		</div>
+		<!-- Scrollable page content-->
+		<div class="list-keluhan-kategori page-content infinite-scroll" data-ptr-distance="55" data-distance="10">
+			<!-- LIST CARD -->
+			<div id="list_keluhan"></div>
+			<script id="list_keluhan_template" type="text/template7">
+			{{#if result}}
+				{{#each result}}
+					<div class="card keluhan-card">
+						<div class="card-header no-border">
+							{{#if foto_user}}
+								<div class="keluhan-avatar"><img src="{{foto_user}}"></div>
+							{{else}}	 
+								<div class="keluhan-avatar"><img src="img/avatar.png"></div>
+							{{/if}}
+							<div class="keluhan-name">{{nama_lengkap}}</div>
+							<div class="keluhan-date">{{tgl_laporan}}</div>
+						</div>
+						<div class="card-content">
+							<div class="post-image" style="min-height:20px;">
+								{{#if nama_file}}
+									<a href="#" data-image="{{nama_file}}" class="zoomImage"><img src="{{nama_file}}" width="100%"></a>
+									<div class="chip">
+										<div class="chip-label">{{nama_kategori}}</div>
+									</div>
+								{{else}}	 
+									<div class="chip" style="margin-top:-22px;">
+										<div class="chip-label">{{nama_kategori}}</div>
+									</div>
+								{{/if}}
+							</div>
+							<div class="card-content-inner">
+								{{isi}}
+								
+								<br/><br/>
+								<b>Lokasi: </b>{{lokasi}}
+							</div>
+						</div>
+						<div class="card-footer no-border">
+							<a href="laporan-detail.html?id={{id}}" class="link comment" data-id="{{id}}">
+								<i class="material-icons">comment</i> Comment
+							</a>
+						</div>
+					</div>
+				{{/each}}
+			{{else}}
+				<style>
+					.page-content{
+						background-color:white;
+					}
+				</style>
+				<div class="content-block-title text-center">Tidak ada keluhan.</div>
+			{{/if}}
+			</script>
+		</div>
+  	</div>
+</div>

@@ -1,0 +1,71 @@
+<div class="pages">
+  	<div data-page="form-laporan" class="page">
+	  	<div class="navbar">
+	  		<div class="navbar-inner">
+	    		<div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+	    		<div class="center sliding">Tambah Laporan Baru</div>
+	    		<div class="right sliding"><a href="#" class="link save-laporan"> <i class="icon material-icons">check</i></a></div>
+	  		</div>
+		</div>
+	    <!-- Scrollable page content-->
+	    <div class="page-content">
+	    	<div class="image-placeholder" id="form-image-placeholder">
+	    		<i class="f7-icons" id="image-placeholder-icon">camera</i>
+	    		<img style="display:none;width: 100%;height: auto" id="image-placeholder" src="" />
+	    	</div>
+			<div class="content-block-title">Masukkan Informasi Laporan</div>
+	    	<form class="list-block inputs-list" enctype="multipart/form-data" method="post">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon f7-icons">box</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Kategori</div>
+								<div class="item-input item-input-field">
+									<select class="kategori">
+										<option>Pilih Kategori</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon f7-icons">box</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Sub Kategori</div>
+								<div class="item-input item-input-field">
+									<select class="sub-kategori">
+										<option>Pilih Sub Kategori</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media"><i class="icon f7-icons">navigation</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Lokasi</div>
+								<div class="item-input item-input-field">
+									<input type="text" placeholder="" class="">
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="align-top">
+						<div class="item-content">
+							<div class="item-media"><i class="icon f7-icons">chat</i></div>
+							<div class="item-inner">
+								<div class="item-title floating-label">Isi Laporan</div>
+								<div class="item-input item-input-field">
+									<textarea class="resizable"></textarea>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</form>
+	    </div>
+  	</div>
+</div>
