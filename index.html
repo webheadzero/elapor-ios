@@ -127,20 +127,20 @@
 
 		function oneSignalService()
 		{
-			//if (cordova.platformId == 'android') {
-				if(window.plugins){
-					window.plugins.OneSignal.startInit("28d085ec-8329-4505-8990-c13903364f14", "1073257436431").handleNotificationOpened(function(data) {
+			if (cordova.platformId == 'android') {
+			if(window.plugins){
+				window.plugins.OneSignal.startInit("28d085ec-8329-4505-8990-c13903364f14", "1073257436431").handleNotificationOpened(function(data) {
 
-					}).endInit();
+				}).endInit();
 
-					window.plugins.OneSignal.getIds(function(ids) {
-						console.log('getIds: ' + JSON.stringify(ids));
-						localStorage.setItem("device-id", ids.userId);
-					});
-				}
-			//}else{
-	        //localStorage.setItem("device-id", device.uuid);
-	    //}
+				window.plugins.OneSignal.getIds(function(ids) {
+					console.log('getIds: ' + JSON.stringify(ids));
+                    localStorage.setItem("device-id", ids.userId);
+				});
+			}
+            }else{
+                localStorage.setItem("device-id", device.uuid);
+            }
 		}
 
         var lastTimeBackPress=0;

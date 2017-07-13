@@ -388,8 +388,7 @@ myApp.onPageInit('form-laporan', function (page) {
     }
 
     $$('.save-laporan').on('click', function() {
-			myApp.showIndicator();
-			$$('.save-laporan').addClass('disabled');
+        $$('.save-laporan').addClass('disabled');
 		var lokasi 		= $$('.inputs-list input').val();
 		var kategori 	= $$('.inputs-list select.sub-kategori').val();
 		var isi 		= $$('.inputs-list textarea').val();
@@ -412,7 +411,7 @@ myApp.onPageInit('form-laporan', function (page) {
 		}
 
 		var jsonString = JSON.stringify(dataString);
-
+                           myApp.showIndicator();
 		if (dataString[1]) {
 			$$.ajax({
 				type: "POST",
@@ -421,7 +420,7 @@ myApp.onPageInit('form-laporan', function (page) {
 				crossDomain: true,
 				cache: false,
 				beforeSend: function() {
-
+                    myApp.showIndicator();
 				},
 				success: function(data) {
 					if (data == "error") {
@@ -467,15 +466,16 @@ myApp.onPageInit('form-laporan', function (page) {
 						var jml_laporan = $$('.laporan').text();
 						jml_laporan = parseInt(jml_laporan);
 						$$('.laporan').text(jml_laporan+1);
-						$$('.save-laporan').removeClass('disabled');
+                    $$('.save-laporan').removeClass('disabled');
 						mainView.router.back({
 							animatePages: false
 						});
-						myApp.hideIndicator();
-						return false;
 					}
+                    
 				}
 			});
+                           myApp.hideIndicator();
+                           return false;
 		}
 
 	});

@@ -182,14 +182,14 @@
 
 		function oneSignalService()
 		{
-			//if (cordova.platformId == 'android') {
+            if (cordova.platformId == 'android') {
 				if(window.plugins){
 					window.plugins.OneSignal.startInit("28d085ec-8329-4505-8990-c13903364f14", "1073257436431").handleNotificationOpened(function(data) {
 
 					}).endInit();
 
 				}
-			//}
+            }
 		}
 
         var lastTimeBackPress=0;
@@ -238,45 +238,47 @@
 
 
 			function cekStatusUser(id){
-				$$(document).on('ajaxStart', function (e) {
-					myApp.hideIndicator();
-				});
+
 				$$.ajax({
 					url: jsonUrl + "json.php?id_user="+id,
 					type: "post",
 					async: true,
 					dataType: "json",
+                    beforeSend: function() {
+                        myApp.hideIndicator();
+                    },
 					success: function(data) {
+
 						var status_aktif = data.result[0].status_aktif;
 						if (status_aktif == 0){
-							myApp.alert('Akun Anda telah diblokir!', 'Informasi', function () {
-								logout(id);
+                        myApp.alert('Akun Anda telah diblokir!', 'Informasi', function () {
+                                    logout(id);
 								window.localStorage.clear();
 								window.location = "index.html";
 							});
 						}else if(data.result[0].device_id != localStorage.getItem("device-id") &&
 								localStorage.getItem("device-id") != null && data.result[0].device_id != null &&
 								localStorage.getItem("device-id") != '' && data.result[0].device_id != ''){
-								myApp.alert('Anda telah login di device lain!', 'Informasi', function () {
-									window.plugins.googleplus.logout(
-                       function (msg) {
-                       }
-                  );
+                        myApp.alert('Anda telah login di device lain!', 'Informasi', function () {
+                                    window.plugins.googleplus.logout(
+                                        function (msg) {
+                                        }
+                                    );
 									window.localStorage.clear();
 									window.location = "index.html";
 								});
-						}
+                        }
 					},
 					error: function (textStatus, errorThrown) {
-						myApp.alert('Akun Anda telah dihapus!', 'Informasi', function () {
-							window.plugins.googleplus.logout(
-									 function (msg) {
-									 }
-							);
-							logout(id);
-								window.localStorage.clear();
-								window.location = "index.html";
-					});
+                        myApp.alert('Akun Anda telah dihapus!', 'Informasi', function () {
+                                    window.plugins.googleplus.logout(
+                                                                     function (msg) {
+                                                                     }
+                                                                     );
+                                    logout(id);
+                                    window.localStorage.clear();
+                                    window.location = "index.html";
+                                    });
 					}
 				});
 			}

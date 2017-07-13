@@ -13,7 +13,7 @@ myApp.onPageInit('list-keluhan', function (page) {
 	var id_sub_kategori = page.query.id;
 	var userData = window.userData();
 
-	var url = jsonUrl + "json.php?id_sub_kategori="+id_sub_kategori+"&id_user="+userData.id;
+                 var url = jsonUrl + "json.php?id_sub_kategori="+id_sub_kategori+"&id_user="+userData.id;
 	window.AjaxPage(url,'#list_keluhan');
 
 	$$(document).on('infinite', '.list-keluhan-kategori.infinite-scroll', function () {

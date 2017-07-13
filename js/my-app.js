@@ -51,7 +51,7 @@ function logout(id){
 		async: true,
 		dataType: "json",
 		success: function(data) {
-
+            
 		},
 		error: function (textStatus, errorThrown) {
 
@@ -91,6 +91,7 @@ function calendar()
 
 	datePicker.show(options, onSuccess, onError);
 }
+
 
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -368,10 +369,10 @@ myApp.onPageInit('registrasi', function (page) {
 			dataString[5] = '-';
 			dataString[6] = obj.gender == 'female' ? 'p' : 'l';
 			dataString[7] = '-';
-			dataString[8] = 3;
-			dataString[9] = localStorage.getItem("device-id") ? localStorage.getItem("device-id") : 'fb';
-			dataString[10] = obj.imageUrl;
-
+            dataString[8] = 3;
+            dataString[9] = localStorage.getItem("device-id") ? localStorage.getItem("device-id") : 'fb';
+            dataString[10] = obj.imageUrl;
+                                     
 			$$.ajax({
 				type: "POST",
 				url: jsonUrl + "insert.php?type=registrasi&via=fb",
@@ -383,29 +384,25 @@ myApp.onPageInit('registrasi', function (page) {
 				},
 				success: function(data) {
 					myApp.showIndicator();
-					if(data == 'blokir'){
-            window.plugins.googleplus.logout(
-               function (msg) {
-               }
-            );
+                    if(data == 'blokir'){
+                    window.plugins.googleplus.logout(
+                                                     function (msg) {
+                                                     }
+                                                     );
 						myApp.alert('Akun diblokir!', 'Informasi');
-					}else if(data == 'username'){
-            window.plugins.googleplus.logout(
-               function (msg) {
-               }
-            );
+                    }else if(data == 'username'){
+                    window.plugins.googleplus.logout(
+                                                     function (msg) {
+                                                     }
+                                                     );
 						myApp.alert('Username sudah digunakan!', 'Informasi');
-					}else if(data == 'email'){
-            window.plugins.googleplus.logout(
-               function (msg) {
-               }
-            );
+                    }else if(data == 'email'){
+                    window.plugins.googleplus.logout(
+                                                     function (msg) {
+                                                     }
+                                                     );
 						myApp.alert('Email sudah digunakan!', 'Informasi');
 					}else if(data == 'error'){
-            window.plugins.googleplus.logout(
-               function (msg) {
-               }
-            );
 						myApp.alert('Registrasi via google gagal!', 'Registrasi Gagal');
 						myApp.hideIndicator();
 					}else{
@@ -468,10 +465,10 @@ myApp.onPageInit('registrasi', function (page) {
 							dataString[5] = '-';
 							dataString[6] = result.gender == 'female' ? 'p' : 'l';
 							dataString[7] = '-';
-							dataString[8] = '3';
-        			dataString[9] = localStorage.getItem("device-id") ? localStorage.getItem("device-id") : 'fb';
-        			dataString[10] = "http://graph.facebook.com/"+result.id+"/picture?width=34&height=34";
-
+                            dataString[8] = '3';
+                            dataString[9] = localStorage.getItem("device-id") ? localStorage.getItem("device-id") : 'fb';
+                            dataString[10] = "http://graph.facebook.com/"+result.id+"/picture?width=34&height=34";
+                               
 							$$.ajax({
 								type: "POST",
 								url: jsonUrl + "insert.php?type=registrasi&via=fb",
